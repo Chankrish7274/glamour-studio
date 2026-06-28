@@ -1,0 +1,2743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Glamour Studio - Premium Beauty & Parlour Services in Salem, Tamil Nadu. Experience modern 2026 luxury care, hair styling, skin glow facials, makeup, and bridal packages.">
+  <title>Glamour Studio | Premium Beauty Parlour & Salon, Salem</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* DESIGN SYSTEM & TOKENS */
+    :root {
+      --primary: #E91E8C; /* Hot Pink */
+      --secondary: #1A0A2E; /* Deep Purple Dark */
+      --accent: #FFD700; /* Gold */
+      --bg-dark: #0D0D1A; /* Near Black */
+      --text-light: #FFFFFF;
+      --card-glass: rgba(255, 255, 255, 0.08);
+      --gradient-pink: linear-gradient(135deg, #E91E8C, #9B59B6);
+      --gradient-gold: linear-gradient(135deg, #FFD700, #FFA500);
+      --gradient-dark: linear-gradient(180deg, #000000, #0D0D1A);
+      --font-heading: 'Cormorant Garamond', serif;
+      --font-body: 'Inter', sans-serif;
+      --glow-pink: 0 0 25px rgba(233, 30, 140, 0.4);
+      --glow-gold: 0 0 25px rgba(255, 215, 0, 0.4);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      font-family: var(--font-body);
+      font-weight: 300;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body.intro-active {
+      overflow: hidden;
+      height: 100vh;
+    }
+
+    /* SCROLLBAR */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-dark);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent);
+    }
+
+    /* UTILITY STYLES */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section {
+      padding: 100px 0;
+      position: relative;
+    }
+
+    /* SHIMMERING HEADINGS */
+    .shimmer-text {
+      font-family: var(--font-heading);
+      background: linear-gradient(90deg, #E91E8C, #FFD700, #E91E8C, #FFA500, #E91E8C);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 6s linear infinite;
+    }
+
+    @keyframes shine {
+      to { background-position: 200% center; }
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 3rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: rgba(255, 255, 255, 0.6);
+      max-width: 600px;
+      margin: 0 auto 60px auto;
+      font-size: 1.1rem;
+    }
+
+    /* GLASS CARDS */
+    .glass-card {
+      background: var(--card-glass);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      padding: 40px;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .glass-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(233, 30, 140, 0.4);
+      box-shadow: var(--glow-pink);
+    }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 36px;
+      border-radius: 50px;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 1rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      border: none;
+      letter-spacing: 1px;
+    }
+
+    .btn-primary {
+      background: var(--gradient-pink);
+      color: #FFFFFF;
+      box-shadow: 0 0 20px rgba(233, 30, 140, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 35px rgba(233, 30, 140, 0.7);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid var(--accent);
+      color: var(--accent);
+    }
+
+    .btn-secondary:hover {
+      background: var(--accent);
+      color: #000000;
+      box-shadow: var(--glow-gold);
+      transform: scale(1.05);
+    }
+
+    /* REVEAL ON SCROLL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000), transform 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =======================================
+       1. INTRO & HERO SECTION
+       ======================================= */
+    #intro-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #000000;
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+    }
+
+    #intro-container.fade-out {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    /* Particle Canvas */
+    .particle-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* Scene 1 & 2: Title reveal */
+    .intro-title-wrapper {
+      position: absolute;
+      z-index: 5;
+      text-align: center;
+    }
+
+    .glamour-letter {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 5rem;
+      font-weight: 900;
+      color: var(--accent);
+      opacity: 0;
+      filter: blur(20px);
+      transform: translateY(-60px) scale(1.5);
+      transition: opacity 0.6s ease, filter 0.6s ease, transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .glamour-letter.show {
+      opacity: 1;
+      filter: blur(0);
+      transform: translateY(0) scale(1);
+      text-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
+    }
+
+    /* Scene 3: Tagline & Streak */
+    .intro-tagline-wrapper {
+      position: absolute;
+      top: 55%;
+      z-index: 5;
+      text-align: center;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .streak {
+      position: absolute;
+      width: 60%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), #FFFFFF, var(--accent), transparent);
+      box-shadow: 0 0 15px var(--accent), 0 0 25px #FFFFFF;
+      opacity: 0;
+      left: -100%;
+      transition: left 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s;
+    }
+
+    .streak.animate {
+      opacity: 1;
+      left: 100%;
+    }
+
+    .tagline {
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-size: 1.8rem;
+      color: #FFFFFF;
+      opacity: 0;
+      transform: translateY(15px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      margin-top: 15px;
+    }
+
+    .tagline.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .tagline.fade-low {
+      opacity: 0.3;
+      transition: opacity 1.5s ease;
+    }
+
+    /* Scene 4: Flash cuts */
+    #flash-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+
+    #flash-overlay.active {
+      opacity: 1;
+    }
+
+    .flash-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transform: scale(1.15);
+      transition: opacity 0.1s ease, transform 0.3s cubic-bezier(0.1, 0.8, 0.3, 1);
+    }
+
+    .flash-slide.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .flash-slide-hair { background: linear-gradient(135deg, #FF0080, #E91E8C); }
+    .flash-slide-skin { background: linear-gradient(135deg, #7B2FBE, #1A0A2E); }
+    .flash-slide-makeup { background: linear-gradient(135deg, #E91E8C, #9B59B6); }
+    .flash-slide-nails { background: linear-gradient(135deg, #FFD700, #B38F00); }
+    .flash-slide-bridal { background: linear-gradient(135deg, #0D0D1A, #000000); }
+
+    .flash-text {
+      font-family: var(--font-heading);
+      font-size: 5rem;
+      font-weight: 900;
+      color: #FFFFFF;
+      letter-spacing: 12px;
+      text-shadow: 0 0 40px rgba(255, 255, 255, 0.9);
+    }
+
+    /* Scene 5 & 6: Hero Final State */
+    .smoke-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 1;
+      background: var(--bg-dark);
+    }
+
+    .smoke-bg::before,
+    .smoke-bg::after,
+    .smoke-bg .smoke-layer {
+      content: '';
+      position: absolute;
+      width: 250%;
+      height: 250%;
+      top: -75%;
+      left: -75%;
+      background: radial-gradient(circle, rgba(123, 47, 190, 0.15) 0%, transparent 60%);
+      animation: rotateSmoke 25s linear infinite;
+      mix-blend-mode: screen;
+    }
+
+    .smoke-bg::after {
+      background: radial-gradient(circle, rgba(233, 30, 140, 0.12) 0%, transparent 50%);
+      animation: rotateSmoke 35s linear infinite reverse;
+    }
+
+    .smoke-bg .smoke-layer {
+      background: radial-gradient(circle, rgba(255, 215, 0, 0.05) 0%, transparent 55%);
+      animation: rotateSmoke 45s linear infinite;
+    }
+
+    @keyframes rotateSmoke {
+      0% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(180deg) scale(1.1); }
+      100% { transform: rotate(360deg) scale(1); }
+    }
+
+    /* Skip Intro Button */
+    .skip-intro {
+      position: fixed;
+      top: 30px;
+      right: 30px;
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: rgba(255, 255, 255, 0.7);
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      z-index: 10000;
+      transition: all 0.3s;
+      letter-spacing: 1px;
+    }
+
+    .skip-intro:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: #FFFFFF;
+      border-color: var(--primary);
+      box-shadow: 0 0 15px rgba(233, 30, 140, 0.4);
+    }
+
+    /* Static Hero Section */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      text-align: center;
+      padding: 100px 24px;
+      z-index: 5;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      max-width: 900px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .logo-slam {
+      font-family: var(--font-heading);
+      font-size: 5rem;
+      font-weight: 900;
+      color: var(--accent);
+      opacity: 0;
+      transform: scale(2.5);
+      letter-spacing: 4px;
+      margin-bottom: 10px;
+    }
+
+    .logo-slam.active {
+      opacity: 1;
+      transform: scale(1);
+      transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.25);
+      animation: logoGlowPulse 4s infinite ease-in-out;
+    }
+
+    @keyframes logoGlowPulse {
+      0%, 100% { text-shadow: 0 0 20px rgba(255, 215, 0, 0.4); }
+      50% { text-shadow: 0 0 40px rgba(255, 215, 0, 0.8), 0 0 50px rgba(233, 30, 140, 0.4); }
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      font-style: italic;
+      color: #FFFFFF;
+      margin-bottom: 15px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .hero-subtitle.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-subtext {
+      font-family: var(--font-body);
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 40px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+    }
+
+    .hero-subtext.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 20px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease 0.4s, transform 0.8s ease 0.4s;
+    }
+
+    .hero-ctas.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Scroll Indicator Arrow */
+    .scroll-arrow {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 1.5rem;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.8s ease 0.6s, color 0.3s;
+      animation: bounceArrow 2s infinite;
+    }
+
+    .scroll-arrow.active {
+      opacity: 1;
+    }
+
+    .scroll-arrow:hover {
+      color: var(--primary);
+    }
+
+    @keyframes bounceArrow {
+      0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+      40% { transform: translate(-50%, -10px); }
+      60% { transform: translate(-50%, -5px); }
+    }
+
+    /* =======================================
+       2. NAVIGATION HEADER
+       ======================================= */
+    #header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: opacity 0.8s ease, transform 0.8s ease, background 0.3s, padding 0.3s, backdrop-filter 0.3s;
+      padding: 24px 0;
+    }
+
+    #header.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #header.scrolled {
+      padding: 14px 0;
+      background: rgba(13, 10, 26, 0.85);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: #FFFFFF;
+      text-decoration: none;
+      letter-spacing: 1px;
+      transition: transform 0.3s;
+    }
+
+    .logo-link:hover {
+      transform: scale(1.02);
+    }
+
+    .logo-link span {
+      color: var(--primary);
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-link {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 0.95rem;
+      transition: all 0.3s;
+      position: relative;
+      padding: 6px 0;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background: var(--gradient-pink);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: #FFFFFF;
+    }
+
+    .nav-link:hover::after, .nav-link.active::after {
+      width: 100%;
+    }
+
+    /* Mobile Hamburger */
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      background: none;
+      border: none;
+      z-index: 1001;
+    }
+
+    .hamburger-bar {
+      display: block;
+      width: 25px;
+      height: 3px;
+      margin: 5px auto;
+      transition: all 0.3s ease-in-out;
+      background-color: #FFFFFF;
+      border-radius: 3px;
+    }
+
+    /* =======================================
+       3. ABOUT US SECTION
+       ======================================= */
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-content h3 {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      margin-bottom: 24px;
+      color: var(--accent);
+    }
+
+    .about-content p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1.05rem;
+      margin-bottom: 30px;
+    }
+
+    .why-choose {
+      margin-bottom: 40px;
+    }
+
+    .why-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .why-icon {
+      font-size: 1.5rem;
+      padding: 10px;
+      background: rgba(233, 30, 140, 0.1);
+      border-radius: 12px;
+      border: 1px solid rgba(233, 30, 140, 0.2);
+    }
+
+    .why-text h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      margin-bottom: 4px;
+    }
+
+    .why-text p {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.6);
+      margin: 0;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .stat-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .stat-card:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 215, 0, 0.3);
+      box-shadow: 0 10px 25px rgba(255, 215, 0, 0.08);
+      transform: translateY(-5px);
+    }
+
+    .stat-num {
+      font-family: var(--font-heading);
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 5px;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.7);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Luxury About Visual Frame */
+    .about-visual {
+      position: relative;
+      height: 500px;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+
+    .about-visual-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(233, 30, 140, 0.6), rgba(26, 10, 46, 0.9));
+      z-index: 2;
+    }
+
+    .about-visual-inner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" stroke="%23FFD700" stroke-width="1" fill="none" stroke-opacity="0.15"/></svg>') repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 3;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .about-visual-frame {
+      border: 2px solid var(--accent);
+      padding: 30px;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+    }
+
+    .about-visual-frame i {
+      font-size: 4rem;
+      color: var(--accent);
+      margin-bottom: 24px;
+      text-shadow: var(--glow-gold);
+    }
+
+    .about-visual-frame h4 {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    /* =======================================
+       4. SERVICES SECTION
+       ======================================= */
+    .tabs-container {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 50px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 12px 28px;
+      border-radius: 50px;
+      color: rgba(255, 255, 255, 0.7);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      letter-spacing: 0.5px;
+    }
+
+    .tab-btn:hover, .tab-btn.active {
+      background: var(--gradient-pink);
+      color: #FFFFFF;
+      border-color: transparent;
+      box-shadow: 0 0 15px rgba(233, 30, 140, 0.3);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    /* Service card 3D flip */
+    .service-card {
+      background: transparent;
+      perspective: 1000px;
+      height: 380px;
+      cursor: pointer;
+    }
+
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transform-style: preserve-3d;
+    }
+
+    .service-card:hover .card-inner,
+    .service-card.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: 24px;
+      padding: 35px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--card-glass);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .card-front {
+      z-index: 2;
+    }
+
+    .card-back {
+      transform: rotateY(180deg);
+      background: linear-gradient(135deg, rgba(26, 10, 46, 0.98), rgba(13, 13, 26, 0.98));
+      z-index: 1;
+    }
+
+    .service-card:hover .card-front,
+    .service-card:hover .card-back {
+      border-color: rgba(233, 30, 140, 0.5);
+      box-shadow: var(--glow-pink);
+    }
+
+    .service-icon {
+      font-size: 3rem;
+      background: rgba(233, 30, 140, 0.15);
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: 1px solid rgba(233, 30, 140, 0.3);
+      margin-bottom: 10px;
+      box-shadow: 0 0 15px rgba(233, 30, 140, 0.15);
+    }
+
+    .service-name {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+      color: #FFFFFF;
+    }
+
+    .service-meta {
+      font-size: 0.95rem;
+      color: var(--accent);
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    .service-desc {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .flip-hint {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.4);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* =======================================
+       5. GALLERY SECTION
+       ======================================= */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 260px;
+      gap: 24px;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: var(--card-glass);
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    /* Mixed Masonry sizes */
+    .gallery-item.size-tall {
+      grid-row: span 2;
+    }
+
+    .gallery-item.size-wide {
+      grid-column: span 2;
+    }
+
+    .gallery-img-box {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    /* Custom placeholder gradients styling */
+    .gallery-item:nth-child(1) .gallery-img-box {
+      background-image: linear-gradient(135deg, #1A0A2E, #E91E8C);
+    }
+    .gallery-item:nth-child(2) .gallery-img-box {
+      background-image: linear-gradient(135deg, #7B2FBE, #E91E8C);
+    }
+    .gallery-item:nth-child(3) .gallery-img-box {
+      background-image: linear-gradient(135deg, #E91E8C, #FFD700);
+    }
+    .gallery-item:nth-child(4) .gallery-img-box {
+      background-image: linear-gradient(135deg, #0D0D1A, #7B2FBE);
+    }
+    .gallery-item:nth-child(5) .gallery-img-box {
+      background-image: linear-gradient(135deg, #9B59B6, #FF0080);
+    }
+    .gallery-item:nth-child(6) .gallery-img-box {
+      background-image: linear-gradient(135deg, #1A0A2E, #FFD700);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(26, 10, 46, 0.85);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: 2;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .gallery-overlay i {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 12px;
+      transform: scale(0.7);
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.25);
+    }
+
+    .gallery-overlay h4 {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      transform: translateY(10px);
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.25);
+    }
+
+    .gallery-item:hover {
+      border-color: rgba(233, 30, 140, 0.4);
+      box-shadow: var(--glow-pink);
+    }
+
+    .gallery-item:hover .gallery-img-box {
+      transform: scale(1.08);
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-item:hover .gallery-overlay i {
+      transform: scale(1);
+    }
+
+    .gallery-item:hover .gallery-overlay h4 {
+      transform: translateY(0);
+    }
+
+    /* =======================================
+       6. APPOINTMENT BOOKING SECTION
+       ======================================= */
+    .booking-wrapper {
+      max-width: 750px;
+      margin: 0 auto;
+    }
+
+    .booking-form {
+      position: relative;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      position: relative;
+      margin-bottom: 24px;
+      width: 100%;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 16px 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      color: #FFFFFF;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      transition: all 0.3s;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary);
+      box-shadow: var(--glow-pink);
+      background: rgba(255, 255, 255, 0.09);
+      outline: none;
+    }
+
+    .form-label {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: rgba(255, 255, 255, 0.5);
+      pointer-events: none;
+      transition: all 0.3s;
+      font-size: 0.95rem;
+      padding: 0 5px;
+    }
+
+    /* Floating label placement */
+    .form-control:focus ~ .form-label,
+    .form-control:not(:placeholder-shown) ~ .form-label,
+    .form-control:-webkit-autofill ~ .form-label,
+    .form-control.has-value ~ .form-label {
+      top: 0;
+      transform: translateY(-50%) scale(0.85);
+      background: var(--bg-dark);
+      color: var(--primary);
+    }
+
+    /* Special style for Select option label styling */
+    select.form-control {
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .select-wrapper {
+      position: relative;
+    }
+
+    .select-wrapper::after {
+      content: '\f107';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 1rem;
+    }
+
+    select.form-control option {
+      background-color: var(--bg-dark);
+      color: #FFFFFF;
+      padding: 10px;
+    }
+
+    /* Date/Time specifics styling */
+    .form-group-textarea {
+      margin-bottom: 30px;
+    }
+
+    textarea.form-control {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .success-alert {
+      display: none;
+      background: rgba(46, 204, 113, 0.15);
+      border: 1px solid rgba(46, 204, 113, 0.3);
+      color: #2ecc71;
+      padding: 16px 20px;
+      border-radius: 12px;
+      margin-bottom: 24px;
+      text-align: center;
+      font-weight: 500;
+      animation: fadeIn 0.5s ease;
+    }
+
+    /* Shimmer submit button */
+    .btn-submit {
+      width: 100%;
+      font-weight: 600;
+      background: linear-gradient(135deg, #FF0080, #E91E8C);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-submit::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: all 0.6s ease;
+    }
+
+    .btn-submit:hover::after {
+      left: 100%;
+      transition: all 0.8s ease;
+    }
+
+    /* =======================================
+       7. CONTACT & LOCATION SECTION
+       ======================================= */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+
+    .contact-info-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .contact-card {
+      background: var(--card-glass);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 30px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .contact-card i {
+      font-size: 1.8rem;
+      color: var(--accent);
+      background: rgba(255, 215, 0, 0.1);
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 215, 0, 0.2);
+    }
+
+    .contact-card-text h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      margin-bottom: 4px;
+    }
+
+    .contact-card-text p {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.7);
+      margin: 0;
+    }
+
+    .contact-ctas {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .btn-wa-direct {
+      background: #25D366;
+      color: #FFFFFF;
+      box-shadow: 0 0 15px rgba(37, 211, 102, 0.3);
+    }
+
+    .btn-wa-direct:hover {
+      background: #20ba59;
+      box-shadow: 0 0 25px rgba(37, 211, 102, 0.5);
+      transform: scale(1.03);
+    }
+
+    .btn-insta-direct {
+      background: linear-gradient(45deg, #F09433 0%, #E6683C 25%, #DC2743 50%, #CC2366 75%, #BC1888 100%);
+      color: #FFFFFF;
+      box-shadow: 0 0 15px rgba(220, 39, 67, 0.3);
+    }
+
+    .btn-insta-direct:hover {
+      box-shadow: 0 0 25px rgba(220, 39, 67, 0.5);
+      transform: scale(1.03);
+    }
+
+    /* Map Placeholder */
+    .map-placeholder {
+      position: relative;
+      height: 100%;
+      min-height: 400px;
+      background: linear-gradient(135deg, rgba(233, 30, 140, 0.15), rgba(26, 10, 46, 0.6));
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .map-placeholder-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .map-placeholder-content i {
+      font-size: 3.5rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+      text-shadow: var(--glow-pink);
+      animation: bounceMarker 2s infinite;
+    }
+
+    @keyframes bounceMarker {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    .map-placeholder-content h4 {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .map-placeholder-content p {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+      max-width: 320px;
+    }
+
+    /* =======================================
+       8. FOOTER SECTION
+       ======================================= */
+    #footer {
+      background: #06060c;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 80px 0 30px 0;
+    }
+
+    .footer-layout {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1.5fr;
+      gap: 60px;
+      margin-bottom: 60px;
+    }
+
+    .footer-brand h4 {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 16px;
+      letter-spacing: 1px;
+    }
+
+    .footer-brand h4 span {
+      color: var(--primary);
+    }
+
+    .footer-tagline {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 1.05rem;
+      margin-bottom: 24px;
+      max-width: 320px;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 16px;
+    }
+
+    .social-btn {
+      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      text-decoration: none;
+      transition: all 0.3s;
+      font-size: 1.1rem;
+    }
+
+    .social-btn:hover {
+      background: var(--gradient-pink);
+      color: #FFFFFF;
+      transform: translateY(-4px);
+      box-shadow: var(--glow-pink);
+      border-color: transparent;
+    }
+
+    .footer-links h5, .footer-contact h5 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      margin-bottom: 24px;
+      position: relative;
+      padding-bottom: 8px;
+    }
+
+    .footer-links h5::after, .footer-contact h5::after {
+      content: '';
+      position: absolute;
+      width: 40px;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background: var(--primary);
+    }
+
+    .footer-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links-list a {
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      transition: all 0.3s;
+      font-size: 0.95rem;
+    }
+
+    .footer-links-list a:hover {
+      color: var(--primary);
+      padding-left: 5px;
+    }
+
+    .footer-contact-info {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .footer-contact-info li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.95rem;
+    }
+
+    .footer-contact-info li i {
+      color: var(--accent);
+      margin-top: 4px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-bottom p {
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 0.85rem;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-bottom-links a {
+      color: rgba(255, 255, 255, 0.4);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.3s;
+    }
+
+    .footer-bottom-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Fixed Floating CTA for Mobile */
+    .mobile-float-cta {
+      display: none;
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 998;
+      background: var(--gradient-pink);
+      color: #FFFFFF;
+      padding: 14px 28px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 20px rgba(233, 30, 140, 0.5);
+      align-items: center;
+      gap: 8px;
+      animation: floatPulse 2s infinite ease-in-out;
+    }
+
+    @keyframes floatPulse {
+      0%, 100% { transform: translateY(0); box-shadow: 0 4px 20px rgba(233, 30, 140, 0.5); }
+      50% { transform: translateY(-6px); box-shadow: 0 10px 30px rgba(233, 30, 140, 0.8); }
+    }
+
+    /* =======================================
+       RESPONSIVENESS (MEDIA QUERIES)
+       ======================================= */
+    @media (max-width: 992px) {
+      .section-title { font-size: 2.5rem; }
+      .about-layout { grid-template-columns: 1fr; gap: 40px; }
+      .about-visual { height: 400px; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-layout { grid-template-columns: 1fr; gap: 40px; }
+      .footer-layout { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .footer-brand { grid-column: span 2; }
+    }
+
+    @media (max-width: 768px) {
+      .glamour-letter { font-size: 3.5rem; }
+      .flash-text { font-size: 3.5rem; }
+      .logo-slam { font-size: 3rem; }
+      .hero-subtitle { font-size: 1.4rem; }
+      .hero-subtext { font-size: 1rem; }
+      .hero-ctas { flex-direction: column; width: 100%; max-width: 300px; gap: 14px; }
+      .btn { width: 100%; }
+
+      /* Mobile Navigation Menu */
+      .hamburger { display: block; }
+      .hamburger.active .hamburger-bar:nth-child(2) { opacity: 0; }
+      .hamburger.active .hamburger-bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+      .hamburger.active .hamburger-bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+      .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 0;
+        gap: 0;
+        flex-direction: column;
+        background: rgba(13, 10, 26, 0.96);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        width: 100%;
+        height: 100vh;
+        text-align: center;
+        transition: 0.3s;
+        z-index: 1000;
+        padding-top: 100px;
+      }
+
+      .nav-menu.active { left: 0; }
+      .nav-menu li { margin: 24px 0; }
+      .nav-link { font-size: 1.2rem; display: block; }
+
+      .services-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr; grid-auto-rows: 250px; }
+      .gallery-item.size-wide { grid-column: span 1; }
+      .form-row { grid-template-columns: 1fr; gap: 0; }
+
+      .footer-layout { grid-template-columns: 1fr; gap: 30px; }
+      .footer-brand { grid-column: span 1; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+
+      .mobile-float-cta { display: inline-flex; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body class="intro-active">
+
+  <!-- Skip Intro Button -->
+  <button id="skip-intro-btn" class="skip-intro">Skip Intro <i class="fa-solid fa-angles-right"></i></button>
+
+  <!-- =======================================
+       1. INTRO & HERO CONTAINER
+       ======================================= -->
+  <div id="intro-container">
+    <!-- Particle System Canvas -->
+    <canvas id="particle-canvas" class="particle-canvas"></canvas>
+
+    <!-- Scene 1 & 2: Title reveal -->
+    <div id="intro-title" class="intro-title-wrapper">
+      <span class="glamour-letter">G</span>
+      <span class="glamour-letter">L</span>
+      <span class="glamour-letter">A</span>
+      <span class="glamour-letter">M</span>
+      <span class="glamour-letter">O</span>
+      <span class="glamour-letter">U</span>
+      <span class="glamour-letter">R</span>
+    </div>
+
+    <!-- Scene 3: Tagline & Streak -->
+    <div id="intro-tagline-container" class="intro-tagline-wrapper">
+      <div id="streak-light" class="streak"></div>
+      <div id="intro-tagline" class="tagline">Where Beauty Meets Power</div>
+    </div>
+
+    <!-- Scene 4: Flash cuts -->
+    <div id="flash-overlay">
+      <div id="flash-hair" class="flash-slide flash-slide-hair"><span class="flash-text">HAIR</span></div>
+      <div id="flash-skin" class="flash-slide flash-slide-skin"><span class="flash-text">SKIN</span></div>
+      <div id="flash-makeup" class="flash-slide flash-slide-makeup"><span class="flash-text">MAKEUP</span></div>
+      <div id="flash-nails" class="flash-slide flash-slide-nails"><span class="flash-text">NAILS</span></div>
+      <div id="flash-bridal" class="flash-slide flash-slide-bridal"><span class="flash-text">BRIDAL</span></div>
+    </div>
+
+    <!-- Scene 5 & 6 / Hero Background: Rotating Smoke -->
+    <div id="hero-smoke-bg" class="smoke-bg" style="opacity: 0; transition: opacity 1.5s ease;">
+      <div class="smoke-layer"></div>
+    </div>
+
+    <!-- Scene 5 & 6: Content Slam -->
+    <section id="hero">
+      <div class="hero-content">
+        <h1 id="hero-logo" class="logo-slam">✦ GLAMOUR STUDIO ✦</h1>
+        <h2 id="hero-title" class="hero-subtitle">Salem's Premier Beauty Destination</h2>
+        <p id="hero-text" class="hero-subtext">Where Beauty Meets Elegance | Premium Beauty & Parlour Services | Salem, Tamil Nadu</p>
+        <div id="hero-actions" class="hero-ctas">
+          <a href="#booking" class="btn btn-primary" id="hero-booking-btn">✨ Book Now</a>
+          <a href="#services" class="btn btn-secondary" id="hero-services-btn">View Services <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div id="scroll-down-arrow" class="scroll-arrow" onclick="scrollToNextSection()">
+        <i class="fa-solid fa-chevron-down"></i>
+      </div>
+    </section>
+  </div>
+
+  <!-- =======================================
+       2. HEADER / FLOATING NAVBAR
+       ======================================= -->
+  <header id="header">
+    <div class="container nav-container">
+      <a href="#hero" class="logo-link" onclick="scrollToTop(event)">
+        ✦ GLAMOUR<span>STUDIO</span> ✦
+      </a>
+      
+      <button class="hamburger" id="hamburger-menu" aria-label="Toggle Navigation">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+
+      <ul class="nav-menu" id="nav-menu-list">
+        <li><a href="#hero" class="nav-link active" onclick="smoothScrollLink(event)">Home</a></li>
+        <li><a href="#about" class="nav-link" onclick="smoothScrollLink(event)">About Us</a></li>
+        <li><a href="#services" class="nav-link" onclick="smoothScrollLink(event)">Services</a></li>
+        <li><a href="#gallery" class="nav-link" onclick="smoothScrollLink(event)">Gallery</a></li>
+        <li><a href="#booking" class="nav-link" onclick="smoothScrollLink(event)">Booking</a></li>
+        <li><a href="#contact" class="nav-link" onclick="smoothScrollLink(event)">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- =======================================
+       MAIN WEBSITE CONTENT
+       ======================================= -->
+  <main id="main-content" style="opacity: 0; transition: opacity 1s ease;">
+
+    <!-- =======================================
+         3. ABOUT US SECTION
+         ======================================= -->
+    <section id="about" class="reveal">
+      <div class="container">
+        <h2 class="section-title shimmer-text">About Glamour Studio</h2>
+        <p class="section-subtitle">A heritage of luxury, fine styling, and natural care.</p>
+        
+        <div class="about-layout">
+          <!-- Text story & Why Choose Us -->
+          <div class="about-content">
+            <h3>Crafting Beauty & Confidence</h3>
+            <p>Founded by an industry beauty expert with over 10+ years of professional salon experience, Glamour Studio represents the gold standard of beauty wellness in Salem. We believe styling is not just an aesthetic enhancement, but a therapeutic journey that sparks self-confidence and empowerment.</p>
+            
+            <div class="why-choose">
+              <div class="why-item">
+                <div class="why-icon">💎</div>
+                <div class="why-text">
+                  <h4>Premium Luxury Products</h4>
+                  <p>We work exclusively with handpicked dermatologically tested organic solutions and elite global cosmetics brands.</p>
+                </div>
+              </div>
+              <div class="why-item">
+                <div class="why-icon">🌸</div>
+                <div class="why-text">
+                  <h4>Expert Stylists & Technicians</h4>
+                  <p>Our certified stylists undergo rigorous structural training to keep up with the latest fashion & hair trends.</p>
+                </div>
+              </div>
+              <div class="why-item">
+                <div class="why-icon">✨</div>
+                <div class="why-text">
+                  <h4>Sterile & Safe Sanctuary</h4>
+                  <p>Your hygiene is our absolute priority. We implement hospital-grade sterilization protocols across all stations.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stats grid -->
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-num" data-val="500">0</div>
+                <div class="stat-label">Happy Clients</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-num" data-val="10">0</div>
+                <div class="stat-label">Years Experience</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-num" data-val="50">0</div>
+                <div class="stat-label">Services</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-num" data-val="4.9" data-decimals="1">0</div>
+                <div class="stat-label">Star Rating</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Glass Frame Visual placeholder -->
+          <div class="about-visual">
+            <div class="about-visual-overlay"></div>
+            <div class="about-visual-inner">
+              <div class="about-visual-frame">
+                <i class="fa-solid fa-crown"></i>
+                <h4>Elevate Your Essence</h4>
+                <p style="color: rgba(255,255,255,0.7); max-width: 300px; margin-top: 10px;">Experience a sensory sanctuary designed to deliver modern aesthetic perfection.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================
+         4. SERVICES SECTION
+         ======================================= -->
+    <section id="services" class="reveal">
+      <div class="container">
+        <h2 class="section-title shimmer-text">Services & price Menu</h2>
+        <p class="section-subtitle">Explore our elite services menu. Filter by category, hover cards for descriptions, and book instantly.</p>
+
+        <!-- Categories filter -->
+        <div class="tabs-container">
+          <button class="tab-btn active" data-category="all">All Services</button>
+          <button class="tab-btn" data-category="hair">Hair Menu ✂️</button>
+          <button class="tab-btn" data-category="skin">Skin Care 🌸</button>
+          <button class="tab-btn" data-category="makeup">Makeup 💄</button>
+          <button class="tab-btn" data-category="nails">Nail Bar 💅</button>
+          <button class="tab-btn" data-category="packages">Luxury Packages 🎉</button>
+        </div>
+
+        <!-- Services grid -->
+        <div id="services-grid" class="services-grid">
+          <!-- Populated dynamically via JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================
+         5. GALLERY SECTION
+         ======================================= */ -->
+    <section id="gallery" class="reveal">
+      <div class="container">
+        <h2 class="section-title shimmer-text">Studio Gallery</h2>
+        <p class="section-subtitle">Visual highlights of our master transformations, bridal looks, and luxurious salon interiors.</p>
+        
+        <div class="gallery-grid">
+          <!-- Item 1: Hair Transformation (Tall) -->
+          <div class="gallery-item size-tall">
+            <div class="gallery-img-box"></div>
+            <div class="gallery-overlay">
+              <i class="fa-solid fa-camera"></i>
+              <h4>Hair Transformation</h4>
+            </div>
+          </div>
+          <!-- Item 2: Bridal Look (Wide) -->
+          <div class="gallery-item size-wide">
+            <div class="gallery-img-box"></div>
+            <div class="gallery-overlay">
+              <i class="fa-solid fa-ring"></i>
+              <h4>Bridal Look</h4>
+            </div>
+          </div>
+          <!-- Item 3: Nail Art (Standard) -->
+          <div class="gallery-item">
+            <div class="gallery-img-box"></div>
+            <div class="gallery-overlay">
+              <i class="fa-solid fa-hand-sparkles"></i>
+              <h4>Nail Art</h4>
+            </div>
+          </div>
+          <!-- Item 4: Skin Glow (Standard) -->
+          <div class="gallery-item">
+            <div class="gallery-img-box"></div>
+            <div class="gallery-overlay">
+              <i class="fa-solid fa-sparkles"></i>
+              <h4>Skin Glow</h4>
+            </div>
+          </div>
+          <!-- Item 5: Party Makeup (Standard) -->
+          <div class="gallery-item">
+            <div class="gallery-img-box"></div>
+            <div class="gallery-overlay">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+              <h4>Party Makeup</h4>
+            </div>
+          </div>
+          <!-- Item 6: Hair Color (Wide) -->
+          <div class="gallery-item size-wide">
+            <div class="gallery-img-box"></div>
+            <div class="gallery-overlay">
+              <i class="fa-solid fa-palette"></i>
+              <h4>Hair Color</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================
+         6. APPOINTMENT BOOKING SECTION
+         ======================================= -->
+    <section id="booking" class="reveal">
+      <div class="container">
+        <h2 class="section-title shimmer-text">Secure Your Appointment</h2>
+        <p class="section-subtitle">Fill in the fields below to schedule your custom therapy. Bookings are instantly verified on WhatsApp.</p>
+        
+        <div class="booking-wrapper">
+          <div class="glass-card booking-form">
+            <!-- Form Success Message -->
+            <div id="booking-success" class="success-alert">
+              <i class="fa-regular fa-circle-check"></i> ✨ Appointment Booked! Redirecting to confirm via WhatsApp...
+            </div>
+            
+            <form id="appointment-form" novalidate onsubmit="submitBookingForm(event)">
+              <div class="form-row">
+                <!-- Full Name -->
+                <div class="form-group">
+                  <input type="text" id="booking-name" class="form-control" placeholder=" " required minlength="3">
+                  <label for="booking-name" class="form-label">Full Name</label>
+                </div>
+                <!-- Phone Number -->
+                <div class="form-group">
+                  <input type="tel" id="booking-phone" class="form-control" placeholder=" " required pattern="[6-9][0-9]{9}">
+                  <label for="booking-phone" class="form-label">Phone Number (10 Digits)</label>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <!-- Email (Optional) -->
+                <div class="form-group">
+                  <input type="email" id="booking-email" class="form-control" placeholder=" ">
+                  <label for="booking-email" class="form-label">Email (Optional)</label>
+                </div>
+                <!-- Select Service -->
+                <div class="form-group select-wrapper">
+                  <select id="booking-service" class="form-control" required>
+                    <option value="" disabled selected hidden></option>
+                    <!-- Populated dynamically via JS -->
+                  </select>
+                  <label for="booking-service" class="form-label">Select Service</label>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <!-- Preferred Date -->
+                <div class="form-group">
+                  <input type="date" id="booking-date" class="form-control" placeholder=" " required>
+                  <label for="booking-date" class="form-label">Preferred Date</label>
+                </div>
+                <!-- Preferred Time Slot -->
+                <div class="form-group select-wrapper">
+                  <select id="booking-time" class="form-control" required>
+                    <option value="" disabled selected hidden></option>
+                    <option value="9:00 AM">9:00 AM</option>
+                    <option value="10:00 AM">10:00 AM</option>
+                    <option value="11:00 AM">11:00 AM</option>
+                    <option value="12:00 PM">12:00 PM</option>
+                    <option value="1:00 PM">1:00 PM</option>
+                    <option value="2:00 PM">2:00 PM</option>
+                    <option value="3:00 PM">3:00 PM</option>
+                    <option value="4:00 PM">4:00 PM</option>
+                    <option value="5:00 PM">5:00 PM</option>
+                    <option value="6:00 PM">6:00 PM</option>
+                    <option value="7:00 PM">7:00 PM</option>
+                    <option value="8:00 PM">8:00 PM</option>
+                  </select>
+                  <label for="booking-time" class="form-label">Preferred Time Slot</label>
+                </div>
+              </div>
+
+              <!-- Special Requests -->
+              <div class="form-group form-group-textarea">
+                <textarea id="booking-requests" class="form-control" placeholder=" "></textarea>
+                <label for="booking-requests" class="form-label">Special Requests (Optional)</label>
+              </div>
+
+              <!-- Submit Button -->
+              <button type="submit" class="btn btn-primary btn-submit">
+                Book My Appointment <i class="fa-solid fa-calendar-check" style="margin-left: 8px;"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================
+         7. CONTACT & LOCATION SECTION
+         ======================================= -->
+    <section id="contact" class="reveal">
+      <div class="container">
+        <h2 class="section-title shimmer-text">Contact Glamour Studio</h2>
+        <p class="section-subtitle">Reach out, map our salon location, or connect directly on social media.</p>
+        
+        <div class="contact-layout">
+          <!-- Glass Cards for Contact Info -->
+          <div class="contact-info-grid">
+            <div class="contact-card">
+              <i class="fa-solid fa-location-dot"></i>
+              <div class="contact-card-text">
+                <h4>Address</h4>
+                <p>No.12, Main Road, Salem, Tamil Nadu</p>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <i class="fa-solid fa-phone-volume"></i>
+              <div class="contact-card-text">
+                <h4>Phone / Contact</h4>
+                <p>+91 99999 99999</p>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <i class="fa-solid fa-clock"></i>
+              <div class="contact-card-text">
+                <h4>Working Hours</h4>
+                <p>Mon - Sat: 9:00 AM – 8:00 PM<br>Sun: 10:00 AM – 6:00 PM</p>
+              </div>
+            </div>
+
+            <div class="contact-ctas">
+              <a href="https://wa.me/919999999999?text=Hi!%20I%20want%20to%20chat%20about%20your%20services" target="_blank" class="btn btn-wa-direct">
+                <i class="fa-brands fa-whatsapp" style="margin-right: 10px; font-size: 1.3rem;"></i> Chat on WhatsApp
+              </a>
+              <a href="https://instagram.com" target="_blank" class="btn btn-insta-direct">
+                <i class="fa-brands fa-instagram" style="margin-right: 10px; font-size: 1.3rem;"></i> Follow on Instagram
+              </a>
+            </div>
+          </div>
+
+          <!-- Stylized Map Placeholder -->
+          <div class="map-placeholder">
+            <div class="map-placeholder-content">
+              <i class="fa-solid fa-map-location-dot"></i>
+              <h4>Find Us in Salem</h4>
+              <p>Located centrally on Main Road, Salem, Tamil Nadu with full valet parking available.</p>
+              <a href="https://maps.google.com/?q=No.12,+Main+Road,+Salem,+Tamil+Nadu" target="_blank" class="btn btn-secondary">
+                Open Google Maps <i class="fa-solid fa-location-arrow" style="margin-left: 8px;"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================
+         8. FOOTER SECTION
+         ======================================= -->
+    <footer id="footer">
+      <div class="container">
+        <div class="footer-layout">
+          <!-- Brand Column -->
+          <div class="footer-brand">
+            <h4>✦ GLAMOUR<span>STUDIO</span> ✦</h4>
+            <p class="footer-tagline">Enhancing Your Natural Beauty & Grace. Experience modern 2026 luxury care.</p>
+            <div class="footer-socials">
+              <a href="https://instagram.com" target="_blank" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="https://facebook.com" target="_blank" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="https://wa.me/919999999999" target="_blank" class="social-btn" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+              <a href="https://youtube.com" target="_blank" class="social-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="footer-links">
+            <h5>Quick Navigation</h5>
+            <ul class="footer-links-list">
+              <li><a href="#hero" onclick="scrollToTop(event)">Home</a></li>
+              <li><a href="#about" onclick="smoothScrollLink(event)">About Us</a></li>
+              <li><a href="#services" onclick="smoothScrollLink(event)">Services Menu</a></li>
+              <li><a href="#gallery" onclick="smoothScrollLink(event)">Studio Gallery</a></li>
+              <li><a href="#booking" onclick="smoothScrollLink(event)">Book Appointment</a></li>
+              <li><a href="#contact" onclick="smoothScrollLink(event)">Contact Details</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact Details -->
+          <div class="footer-contact">
+            <h5>Get In Touch</h5>
+            <ul class="footer-contact-info">
+              <li>
+                <i class="fa-solid fa-location-dot"></i>
+                <span>No.12, Main Road, Salem, Tamil Nadu, India</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-phone"></i>
+                <span>+91 99999 99999</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-envelope"></i>
+                <span>appointments@glamourstudio.in</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2026 Glamour Studio. All Rights Reserved. Crafted with elegance.</p>
+          <div class="footer-bottom-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Fixed Floating CTA Button on Mobile -->
+    <a href="#booking" class="mobile-float-cta" onclick="smoothScrollLink(event)">
+      <i class="fa-solid fa-calendar-check"></i> Book Now
+    </a>
+
+  </main>
+
+  <!-- =======================================
+       VANILLA JAVASCRIPT LOGIC
+       ======================================= -->
+  <script>
+    // ---------------------------------------
+    // SERVICES DATA AND MODEL SETUP
+    // ---------------------------------------
+    const services = [
+      { id: 'hair-cut', category: 'hair', name: 'Hair Cut & Style', icon: '✂️', price: 299, duration: '45 min', desc: 'Custom haircuts, premium wash, and professional blow dry styling tailored to your look.' },
+      { id: 'hair-spa', category: 'hair', name: 'Hair Spa Treatment', icon: '💆', price: 799, duration: '60 min', desc: 'Nourishing organic oils massage, moisturizing steam, and customized repairing cream masks.' },
+      { id: 'hair-color', category: 'hair', name: 'Hair Coloring', icon: '🎨', price: 1499, duration: '90 min', desc: 'Root touch-up or full head fashion shades using luxury ammonia-free colors.' },
+      { id: 'keratin', category: 'hair', name: 'Keratin Treatment', icon: '💎', price: 2999, duration: '120 min', desc: 'Deep protein reconstruction for frizz-free, ultra silky-smooth hair lasting 3-5 months.' },
+
+      { id: 'gold-facial', category: 'skin', name: 'Gold Facial', icon: '✨', price: 599, duration: '60 min', desc: 'Exfoliation scrub, facial massage, and 24k active gold leaf mask for instant skin radiance.' },
+      { id: 'cleanup-bleach', category: 'skin', name: 'Cleanup & Bleach', icon: '🌸', price: 399, duration: '45 min', desc: 'Pore extraction, blackhead clearing, and deep cleansing with herbal skin brighteners.' },
+      { id: 'detan', category: 'skin', name: 'De-tan Treatment', icon: '☀️', price: 499, duration: '30 min', desc: 'Special cooling tan removal pack designed to soothe sun exposure and even out pigmentation.' },
+      { id: 'anti-aging', category: 'skin', name: 'Anti-Aging Facial', icon: '💫', price: 999, duration: '75 min', desc: 'Collagen-rich firming therapy and micro-massages targeting fine lines and dry fatigue.' },
+
+      { id: 'party-makeup', category: 'makeup', name: 'Party Makeup', icon: '💄', price: 1499, duration: '90 min', desc: 'Flawless HD styling for corporate events, parties, and social occasions.' },
+      { id: 'bridal-makeup', category: 'makeup', name: 'Bridal Makeup', icon: '👰', price: 4999, duration: '180 min', desc: 'Elite bridal HD/Airbrush makeup, hair styling, traditional saree draping, and jewelry setting.' },
+      { id: 'eye-makeup', category: 'makeup', name: 'Eye Makeup', icon: '👁️', price: 599, duration: '45 min', desc: 'Dramatic or natural eye styling, eyeliner, shadows, and lashes.' },
+      { id: 'natural-glow', category: 'makeup', name: 'Natural Glow Makeup', icon: '🌟', price: 999, duration: '60 min', desc: 'Ultra-lightweight, dewy finish cosmetics for a radiant and fresh daytime style.' },
+
+      { id: 'manicure', category: 'nails', name: 'Manicure', icon: '💅', price: 299, duration: '30 min', desc: 'Aromatic hand soak, nail trimming, cuticle grooming, sugar scrubs, and luxury polish.' },
+      { id: 'pedicure', category: 'nails', name: 'Pedicure', icon: '🦶', price: 399, duration: '45 min', desc: 'Relaxing hot tub soak, foot exfoliation scrub, heel buffing, and relaxing foot massage.' },
+      { id: 'nail-art', category: 'nails', name: 'Nail Art', icon: '🎨', price: 599, duration: '60 min', desc: 'Custom creative designs, chrome mirrors, glitter highlights, and custom stamping overlay.' },
+      { id: 'gel-nails', category: 'nails', name: 'Gel Nails', icon: '💎', price: 999, duration: '75 min', desc: 'Super durable UV gel extensions or overlays with chip-free mirror shine gloss.' },
+
+      { id: 'bridal-pkg', category: 'packages', name: 'Bridal Package', icon: '👰', price: 9999, duration: 'Full Day', desc: 'Complete luxurious bridal pampering: Premium Makeup, Hair, Facial, Pedicure, Manicure, Saree Draping.' },
+      { id: 'party-ready', category: 'packages', name: 'Party Ready Package', icon: '🎉', price: 2999, duration: '3 Hours', desc: 'Full hair salon blowout, party makeup, and dazzling custom gel nail polish.' },
+      { id: 'glow-up', category: 'packages', name: 'Glow Up Package', icon: '✨', price: 1999, duration: '2 Hours', desc: 'Radiant Gold facial, customized hair styling cut, and standard manicure.' },
+      { id: 'self-care', category: 'packages', name: 'Self Care Sunday', icon: '🌸', price: 1499, duration: '2 Hours', desc: 'Nourishing hair spa treatment, deep cleaning facial wash, and standard pedicure.' },
+    ];
+
+    // ---------------------------------------
+    // PARTICLE ENGINE (GOLD SPARKS)
+    // ---------------------------------------
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    const maxParticles = 40;
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    class SparkleParticle {
+      constructor(isBurst = false, bx = 0, by = 0) {
+        this.reset(isBurst, bx, by);
+      }
+
+      reset(isBurst = false, bx = 0, by = 0) {
+        if (isBurst) {
+          this.x = bx;
+          this.y = by;
+          const angle = Math.random() * Math.PI * 2;
+          const speed = Math.random() * 5 + 2;
+          this.vx = Math.cos(angle) * speed;
+          this.vy = Math.sin(angle) * speed;
+          this.size = Math.random() * 4 + 2;
+          this.alpha = 1;
+          this.decay = Math.random() * 0.03 + 0.015;
+          this.isBurstParticle = true;
+        } else {
+          this.x = Math.random() * canvas.width;
+          this.y = canvas.height + Math.random() * 50;
+          this.vx = Math.random() * 1.5 - 0.75;
+          this.vy = -(Math.random() * 1.5 + 0.5);
+          this.size = Math.random() * 3 + 1.5;
+          this.alpha = Math.random() * 0.5 + 0.3;
+          this.decay = 0;
+          this.isBurstParticle = false;
+        }
+        this.color = `rgba(255, 215, 0, ${this.alpha})`;
+      }
+
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+
+        if (this.isBurstParticle) {
+          this.alpha -= this.decay;
+          if (this.alpha <= 0) {
+            return false; // remove
+          }
+        } else {
+          // Ambient float up
+          if (this.y < -10 || this.x < -10 || this.x > canvas.width + 10) {
+            this.reset();
+          }
+        }
+        return true;
+      }
+
+      draw() {
+        ctx.save();
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = '#FFD700';
+        ctx.fillStyle = this.isBurstParticle 
+          ? `rgba(255, 215, 0, ${this.alpha})`
+          : `rgba(255, 215, 0, ${this.alpha})`;
+        
+        ctx.beginPath();
+        // Star pattern or simple circle
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    // Initialize ambient particles
+    for (let i = 0; i < maxParticles; i++) {
+      particles.push(new SparkleParticle());
+    }
+
+    function triggerBurst(bx, by) {
+      for (let i = 0; i < 25; i++) {
+        particles.push(new SparkleParticle(true, bx, by));
+      }
+    }
+
+    let animationFrameId;
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      particles = particles.filter(p => {
+        const keep = p.update();
+        if (keep) p.draw();
+        return keep;
+      });
+
+      // Refill ambient if below threshold
+      const ambientCount = particles.filter(p => !p.isBurstParticle).length;
+      if (ambientCount < maxParticles) {
+        particles.push(new SparkleParticle());
+      }
+
+      animationFrameId = requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+
+
+    // ---------------------------------------
+    // CINEMATIC SEQUENCER
+    // ---------------------------------------
+    let introFinished = false;
+    let sequenceTimeouts = [];
+
+    // Skip Motion check
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      finishIntro();
+    } else {
+      runCinematicIntro();
+    }
+
+    function runCinematicIntro() {
+      const letters = document.querySelectorAll('.glamour-letter');
+      const streak = document.getElementById('streak-light');
+      const tagline = document.getElementById('intro-tagline');
+      const titleWrapper = document.getElementById('intro-title');
+      const taglineWrapper = document.getElementById('intro-tagline-container');
+      const flashOverlay = document.getElementById('flash-overlay');
+      const flashes = {
+        hair: document.getElementById('flash-hair'),
+        skin: document.getElementById('flash-skin'),
+        makeup: document.getElementById('flash-makeup'),
+        nails: document.getElementById('flash-nails'),
+        bridal: document.getElementById('flash-bridal')
+      };
+      
+      const smokeBg = document.getElementById('hero-smoke-bg');
+      const heroLogo = document.getElementById('hero-logo');
+      const heroTitle = document.getElementById('hero-title');
+      const heroText = document.getElementById('hero-text');
+      const heroActions = document.getElementById('hero-actions');
+      const scrollArrow = document.getElementById('scroll-down-arrow');
+
+      // --- SCENE 1 & 2: Letter Typing (1s - 3s) ---
+      letters.forEach((letter, idx) => {
+        let t = setTimeout(() => {
+          letter.classList.add('show');
+          // Gold burst on last letter
+          if (idx === letters.length - 1) {
+            const rect = titleWrapper.getBoundingClientRect();
+            triggerBurst(window.innerWidth / 2, window.innerHeight / 2 - 20);
+          }
+        }, 1000 + (idx * 150));
+        sequenceTimeouts.push(t);
+      });
+
+      // --- SCENE 3: Tagline Slash (3s - 4s) ---
+      let tStreak = setTimeout(() => {
+        streak.classList.add('animate');
+      }, 3000);
+      sequenceTimeouts.push(tStreak);
+
+      let tTagline = setTimeout(() => {
+        tagline.classList.add('show');
+      }, 3200);
+      sequenceTimeouts.push(tTagline);
+
+      let tTaglineFade = setTimeout(() => {
+        tagline.classList.add('fade-low');
+      }, 3900);
+      sequenceTimeouts.push(tTaglineFade);
+
+      // --- SCENE 4: Service Flash Cuts (4.2s - 5.7s) ---
+      let tFlashStart = setTimeout(() => {
+        // Fade out previous titles
+        titleWrapper.style.transition = 'opacity 0.3s';
+        titleWrapper.style.opacity = '0';
+        taglineWrapper.style.transition = 'opacity 0.3s';
+        taglineWrapper.style.opacity = '0';
+
+        flashOverlay.classList.add('active');
+      }, 4200);
+      sequenceTimeouts.push(tFlashStart);
+
+      // Flash sequence cuts
+      const cuts = [
+        { el: flashes.hair, start: 4300, end: 4600 },
+        { el: flashes.skin, start: 4600, end: 4900 },
+        { el: flashes.makeup, start: 4900, end: 5200 },
+        { el: flashes.nails, start: 5200, end: 5500 },
+        { el: flashes.bridal, start: 5500, end: 5800 }
+      ];
+
+      cuts.forEach((cut) => {
+        let tIn = setTimeout(() => {
+          cut.el.classList.add('active');
+        }, cut.start);
+        let tOut = setTimeout(() => {
+          cut.el.classList.remove('active');
+        }, cut.end);
+        sequenceTimeouts.push(tIn, tOut);
+      });
+
+      let tFlashEnd = setTimeout(() => {
+        flashOverlay.classList.remove('active');
+      }, 5800);
+      sequenceTimeouts.push(tFlashEnd);
+
+      // --- SCENE 5: Dramatic Logo Slam (7s - 8s) ---
+      let tLogoSlam = setTimeout(() => {
+        // Active background smoke rotating
+        smokeBg.style.opacity = '1';
+        heroLogo.classList.add('active');
+        triggerBurst(window.innerWidth / 2, window.innerHeight / 2);
+      }, 7000);
+      sequenceTimeouts.push(tLogoSlam);
+
+      let tSubhead = setTimeout(() => {
+        heroTitle.classList.add('active');
+      }, 7400);
+      sequenceTimeouts.push(tSubhead);
+
+      // --- SCENE 6: Final CTA & Smooth Transition (8s - 10s) ---
+      let tCTAs = setTimeout(() => {
+        heroText.classList.add('active');
+        heroActions.classList.add('active');
+        scrollArrow.classList.add('active');
+        // Hide Skip Intro Button
+        document.getElementById('skip-intro-btn').style.opacity = '0';
+        setTimeout(() => document.getElementById('skip-intro-btn').style.display = 'none', 300);
+      }, 8000);
+      sequenceTimeouts.push(tCTAs);
+
+      let tFinish = setTimeout(() => {
+        finishIntro();
+      }, 9500);
+      sequenceTimeouts.push(tFinish);
+    }
+
+    function finishIntro() {
+      if (introFinished) return;
+      introFinished = true;
+
+      // Clear all sequence timers
+      sequenceTimeouts.forEach(clearTimeout);
+
+      // Direct element manipulation
+      document.body.classList.remove('intro-active');
+      document.getElementById('skip-intro-btn').style.display = 'none';
+
+      // Hide intro absolute scenes
+      document.getElementById('intro-title').style.display = 'none';
+      document.getElementById('intro-tagline-container').style.display = 'none';
+      document.getElementById('flash-overlay').style.display = 'none';
+
+      // Lock intro-container to absolute header position
+      const introContainer = document.getElementById('intro-container');
+      introContainer.style.position = 'relative';
+      introContainer.style.height = 'auto';
+      introContainer.style.width = '100%';
+      introContainer.style.zIndex = 'auto';
+
+      // Show Hero UI elements immediately
+      document.getElementById('hero-smoke-bg').style.opacity = '1';
+      document.getElementById('hero-logo').classList.add('active');
+      document.getElementById('hero-title').classList.add('active');
+      document.getElementById('hero-text').classList.add('active');
+      document.getElementById('hero-actions').classList.add('active');
+      document.getElementById('scroll-down-arrow').classList.add('active');
+
+      // Fade-in main layout sections
+      document.getElementById('header').classList.add('visible');
+      const main = document.getElementById('main-content');
+      main.style.opacity = '1';
+
+      // Trigger scroll reveals for top sections
+      setTimeout(handleScrollReveal, 100);
+    }
+
+    document.getElementById('skip-intro-btn').addEventListener('click', finishIntro);
+
+
+    // ---------------------------------------
+    // SERVICE CARD INJECTION & TAB FILTERS
+    // ---------------------------------------
+    const servicesGrid = document.getElementById('services-grid');
+    const bookingSelect = document.getElementById('booking-service');
+
+    function renderServices(filter = 'all') {
+      servicesGrid.innerHTML = '';
+      
+      const filtered = filter === 'all' 
+        ? services 
+        : services.filter(s => s.category === filter);
+
+      filtered.forEach(s => {
+        const card = document.createElement('div');
+        card.className = 'service-card';
+        card.setAttribute('data-id', s.id);
+        // Toggle mobile flip trigger on click, hover is handled via CSS
+        card.addEventListener('click', (e) => {
+          if (window.innerWidth <= 768 && !e.target.closest('.btn-primary')) {
+            card.classList.toggle('flipped');
+          }
+        });
+
+        card.innerHTML = `
+          <div class="card-inner">
+            <!-- Front of Card -->
+            <div class="card-front">
+              <div class="service-icon">${s.icon}</div>
+              <div>
+                <h3 class="service-name">${s.name}</h3>
+                <span class="service-meta">${s.duration} • ₹${s.price}</span>
+              </div>
+              <div class="flip-hint">
+                <i class="fa-solid fa-rotate"></i> Tap for details
+              </div>
+            </div>
+            <!-- Back of Card -->
+            <div class="card-back">
+              <h3 class="service-name" style="font-size:1.4rem; color:var(--accent);">${s.name}</h3>
+              <p class="service-desc">${s.desc}</p>
+              <div style="width: 100%;">
+                <span class="service-meta" style="display:block; margin-bottom:12px;">₹${s.price} | ${s.duration}</span>
+                <button class="btn btn-primary" style="padding:10px 24px; font-size:0.9rem; width:100%;" onclick="triggerBookNow('${s.id}', event)">
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+        servicesGrid.appendChild(card);
+      });
+    }
+
+    // Populate Select Options
+    function populateBookingDropdown() {
+      // Clear previous, keep first default hidden
+      bookingSelect.innerHTML = '<option value="" disabled selected hidden></option>';
+      services.forEach(s => {
+        const opt = document.createElement('option');
+        opt.value = s.name;
+        opt.textContent = `${s.name} (₹${s.price})`;
+        bookingSelect.appendChild(opt);
+      });
+    }
+
+    // Tab switcher trigger
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderServices(btn.dataset.category);
+      });
+    });
+
+    // Run Initial renders
+    renderServices();
+    populateBookingDropdown();
+
+
+    // ---------------------------------------
+    // BOOK NOW SERVICE PRE-SELECTION
+    // ---------------------------------------
+    function triggerBookNow(serviceId, event) {
+      if (event) {
+        event.stopPropagation(); // Stop card flip trigger
+      }
+      
+      const service = services.find(s => s.id === serviceId);
+      if (service) {
+        bookingSelect.value = service.name;
+        // Trigger select placeholder change styling if needed
+        bookingSelect.dispatchEvent(new Event('change'));
+
+        // Scroll down to booking card
+        const bookingSection = document.getElementById('booking');
+        bookingSection.scrollIntoView({ behavior: 'smooth' });
+
+        // Pink glow alert highlight to indicate target
+        const formCard = document.querySelector('.booking-form');
+        formCard.style.boxShadow = '0 0 40px rgba(233, 30, 140, 0.8)';
+        formCard.style.borderColor = 'var(--primary)';
+        
+        setTimeout(() => {
+          formCard.style.boxShadow = '';
+          formCard.style.borderColor = '';
+        }, 1500);
+      }
+    }
+
+
+    // ---------------------------------------
+    // NAVIGATION HEADER SCROLL MECHANICS
+    // ---------------------------------------
+    const header = document.getElementById('header');
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+      // Shrink Header
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+
+      // Highlight active link
+      let currentSectionId = 'hero';
+      sections.forEach(sec => {
+        const top = sec.offsetTop - 120;
+        const bottom = top + sec.offsetHeight;
+        if (window.scrollY >= top && window.scrollY < bottom) {
+          currentSectionId = sec.getAttribute('id');
+        }
+      });
+
+      // Special check for bottom of page trigger
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+        currentSectionId = 'contact';
+      }
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${currentSectionId}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Mobile Hamburger Toggle
+    const hamburger = document.getElementById('hamburger-menu');
+    const navMenu = document.getElementById('nav-menu-list');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+
+    // Close Mobile Menu on Click
+    function smoothScrollLink(e) {
+      e.preventDefault();
+      const targetId = e.currentTarget.getAttribute('href');
+      const targetSec = document.querySelector(targetId);
+
+      // Close mobile menu if active
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+
+      if (targetSec) {
+        window.scrollTo({
+          top: targetSec.offsetTop - 80,
+          behavior: 'smooth'
+        });
+      }
+    }
+
+    function scrollToTop(e) {
+      e.preventDefault();
+      // Close mobile menu if active
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+
+    function scrollToNextSection() {
+      const aboutSec = document.getElementById('about');
+      window.scrollTo({
+        top: aboutSec.offsetTop - 80,
+        behavior: 'smooth'
+      });
+    }
+
+
+    // ---------------------------------------
+    // INTERSECTION OBSERVER REVEALS
+    // ---------------------------------------
+    function handleScrollReveal() {
+      const reveals = document.querySelectorAll('.reveal');
+      const observerOptions = {
+        root: null,
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            
+            // Trigger Counter statistics counters when About section shows up
+            if (entry.target.getAttribute('id') === 'about') {
+              startStatsCounters();
+            }
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      reveals.forEach(el => observer.observe(el));
+    }
+
+
+    // ---------------------------------------
+    // STATS COUNT UP ENGINE
+    // ---------------------------------------
+    let statsStarted = false;
+    function startStatsCounters() {
+      if (statsStarted) return;
+      statsStarted = true;
+
+      const counters = document.querySelectorAll('.stat-num');
+      counters.forEach(counter => {
+        const val = parseFloat(counter.getAttribute('data-val'));
+        const decimals = parseInt(counter.getAttribute('data-decimals')) || 0;
+        const duration = 1800; // ms
+        const startTime = performance.now();
+
+        function updateCounter(currentTime) {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          
+          // Ease-out cubic curve
+          const easeProgress = 1 - Math.pow(1 - progress, 3);
+          const currentVal = easeProgress * val;
+
+          if (decimals > 0) {
+            counter.textContent = currentVal.toFixed(decimals) + '★';
+          } else {
+            counter.textContent = Math.floor(currentVal) + '+';
+          }
+
+          if (progress < 1) {
+            requestAnimationFrame(updateCounter);
+          } else {
+            // Anchor exact final value
+            if (decimals > 0) {
+              counter.textContent = val.toFixed(decimals) + '★';
+            } else {
+              counter.textContent = val + '+';
+            }
+          }
+        }
+        requestAnimationFrame(updateCounter);
+      });
+    }
+
+
+    // ---------------------------------------
+    // FORM VALIDATION & WHATSAPP REDIRECT
+    // ---------------------------------------
+    // Floating label value detection
+    document.querySelectorAll('.form-control').forEach(input => {
+      const checkValue = () => {
+        if (input.value && input.value !== "") {
+          input.classList.add('has-value');
+        } else {
+          input.classList.remove('has-value');
+        }
+      };
+      input.addEventListener('input', checkValue);
+      input.addEventListener('change', checkValue);
+      // Run once initially
+      checkValue();
+    });
+
+    // Restrict Date picker to future/today
+    const datePicker = document.getElementById('booking-date');
+    const todayStr = new Date().toISOString().split('T')[0];
+    datePicker.min = todayStr;
+
+    function submitBookingForm(e) {
+      e.preventDefault();
+      
+      const form = document.getElementById('appointment-form');
+      const name = document.getElementById('booking-name').value.trim();
+      const phone = document.getElementById('booking-phone').value.trim();
+      const email = document.getElementById('booking-email').value.trim();
+      const service = document.getElementById('booking-service').value;
+      const date = document.getElementById('booking-date').value;
+      const time = document.getElementById('booking-time').value;
+      const requests = document.getElementById('booking-requests').value.trim();
+
+      // Basic Visual Assertions/Validations
+      let valid = true;
+      const inputs = form.querySelectorAll('input[required], select[required]');
+      
+      inputs.forEach(input => {
+        if (!input.value) {
+          valid = false;
+          input.style.borderColor = '#e74c3c';
+          input.style.boxShadow = '0 0 10px rgba(231, 76, 60, 0.4)';
+        } else {
+          input.style.borderColor = '';
+          input.style.boxShadow = '';
+        }
+      });
+
+      // Assert Indian phone number match (10 digits starting with 6-9)
+      const phoneRegex = /^[6-9]\d{9}$/;
+      const phoneInput = document.getElementById('booking-phone');
+      if (!phoneRegex.test(phone)) {
+        valid = false;
+        phoneInput.style.borderColor = '#e74c3c';
+        phoneInput.style.boxShadow = '0 0 10px rgba(231, 76, 60, 0.4)';
+        alert('Please enter a valid 10-digit mobile number.');
+        return;
+      }
+
+      if (!valid) {
+        alert('Please fill out all required fields.');
+        return;
+      }
+
+      // Show Success Block
+      const successBlock = document.getElementById('booking-success');
+      successBlock.style.display = 'block';
+      
+      // Auto scroll to success message
+      successBlock.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      // Formatted Booking message text content
+      const msg = `Hi Glamour Studio! I want to book an appointment:
+✦ Name: ${name}
+✦ Phone: +91 ${phone}
+✦ Email: ${email ? email : 'Not Provided'}
+✦ Service: ${service}
+✦ Date: ${date}
+✦ Time Slot: ${time}
+✦ Requests: ${requests ? requests : 'None'}`;
+
+      const encodedText = encodeURIComponent(msg);
+      const whatsappUrl = `https://wa.me/919999999999?text=${encodedText}`;
+
+      // Reset form after a brief pause and redirect
+      setTimeout(() => {
+        form.reset();
+        successBlock.style.display = 'none';
+        
+        // Remove label floating styling variables
+        form.querySelectorAll('.form-control').forEach(ctrl => {
+          ctrl.dispatchEvent(new Event('change'));
+        });
+
+        // Trigger WhatsApp API Redirect
+        window.open(whatsappUrl, '_blank');
+      }, 1800);
+    }
+  </script>
+</body>
+</html>
